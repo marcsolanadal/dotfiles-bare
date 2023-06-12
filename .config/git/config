@@ -1,1 +1,75 @@
-/home/marcsn/dotfiles/.config/git/config
+[pull]
+	rebase = false
+
+[merge]
+	conflictStyle = diff3
+
+[diff]
+	colorMoved = default
+
+[core]
+	editor = vim
+	pager = delta
+
+[interactive]
+	diffFilter = delta --color-only 
+
+[delta]
+	features = unobtrusive-line-numbers decorations interactive navigate 
+	side-by-side = true
+	hyperlinks = true
+	whitespace-error-style = 22 reverse
+   	hyperlinks-file-link-format = "file-line://{path}:{line}"
+
+[delta "unobtrusive-line-numbers"]
+	line-numbers = true
+	line-numbers-minus-style = "#444444"
+	line-numbers-zero-style = "#444444"
+	line-numbers-plus-style = "#444444"
+	line-numbers-left-format = "{nm:>4}┊"
+	line-numbers-right-format = "{np:>4}│"
+	line-numbers-left-style = blue
+	line-numbers-right-style = blue
+
+[delta "decorations"]
+	commit-decoration-style = bold yellow box ul
+	file-style = bold yellow ul
+	file-decoration-style = none
+	hunk-header-decoration-style = yellow box
+
+[delta "interactive"]
+	keep-plus-minus-markers = false
+
+[credential]
+	helper = /mnt/c/Program\\ Files\\ \\(x86\\)/Git\\ Credential\\ Manager/git-credential-manager.exe
+
+[user]
+	email = marcsn@ext.inditex.com
+	name = Marc Solà Nadal
+
+[commit]
+	gpgsign = true
+
+[color]
+	ui = true
+
+[color "diff-highlight"]
+	oldNormal = red bold
+	oldHighlight = red bold 52
+	newNormal = green bold
+	newHighlight = green bold 22
+
+[color "diff"]
+	meta = 11
+	frag = magenta bold
+	func = 146 bold
+	commit = yellow bold
+	old = red bold
+	new = green bold
+	whitespace = red reverse
+
+[alias]
+	graph = log --all --decorate --oneline --graph
+	who = blame
+	cb = !git branch --sort=-committerdate | fzf --header Checkout | xargs git checkout
+	a = !git ls-files -m -o --exclude-standard | fzf -m --ansi --preview='git diff --color=always {}' --print0 | xargs -0 -o -t git add 
