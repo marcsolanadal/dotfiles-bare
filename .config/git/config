@@ -73,3 +73,4 @@
 	who = blame
 	cb = !git branch --sort=-committerdate | fzf --header Checkout | xargs git checkout
 	a = !git ls-files -m -o --exclude-standard | fzf -m --ansi --preview='git diff --color=always {}' --print0 | xargs -0 -o -t git add 
+

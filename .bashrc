@@ -127,3 +127,7 @@ eval "$(starship init bash)"
 alias siga='cd ~/repos/siga.bare'
 alias pfe='cd ~/repos/spa-estimatedfinalpricesimulator/code'
 alias barcadas='cd ~/repos/spa-managementcontrolshipsrawmaterials/code'
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH=$BUN_INSTALL/bin:$PATH
